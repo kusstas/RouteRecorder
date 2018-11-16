@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Drawer.qml</file>
+        <file>Tools.qml</file>
+        <file>BackgroundImageInput.qml</file>
+    </qresource>
+</RCC>
