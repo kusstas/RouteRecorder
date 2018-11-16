@@ -36,13 +36,14 @@ Window {
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            Drawer {
-                id: drawer
+            Painter {
+                id: painter
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
                 background.source: backgroundImageInput.pathToImage
+                msIntervalPaint: tools.msIntervalPaint
 
                 onBeginLine: {
                     routeWriter.createRoute(x, y);
@@ -59,8 +60,8 @@ Window {
                 Layout.preferredWidth: 300
                 Layout.fillHeight: true
 
-                drawerWidth: drawer.width
-                drawerHeight: drawer.height
+                painterWidth: painter.width
+                painterHeight: painter.height
 
                 routeCounts: routeWriter.routeCounts
 
@@ -73,7 +74,7 @@ Window {
                 }
 
                 onClearTriggered: {
-                    drawer.clear();
+                    painter.clear();
                 }
             }
         }

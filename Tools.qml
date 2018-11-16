@@ -10,10 +10,11 @@ Rectangle {
     border.width: 2
 
     property alias folderName: folderNameField.text
+    property alias msIntervalPaint: msIntervalPaintSpinBox.value
 
     property var routeCounts: []
-    property int drawerWidth: 0
-    property int drawerHeight: 0
+    property int painterWidth: 0
+    property int painterHeight: 0
 
     signal clearTriggered
     signal writeToFiles
@@ -37,6 +38,16 @@ Rectangle {
             }
         }
 
+        SpinBox {
+            id: msIntervalPaintSpinBox
+
+            Layout.fillWidth: true
+            editable: true
+
+            from: 1
+            to: 200
+        }
+
         TextField {
             id: folderNameField
 
@@ -56,12 +67,12 @@ Rectangle {
         }
 
         TextField {
-            id: infoDrawerField
+            id: infoPainterField
 
             Layout.fillWidth: true
 
             readOnly: true
-            text: "Size of drawer: %1x%2".arg(root.drawerWidth).arg(root.drawerHeight)
+            text: "Size of painter: %1x%2".arg(root.painterWidth).arg(root.painterWidth)
         }
 
         ListView {
