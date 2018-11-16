@@ -35,8 +35,13 @@ Rectangle {
           return num <= min ? min : num >= max ? max : num;
         }
 
-        property real nX: clamp(mouseX / width, 0, 1)
-        property real nY: clamp(mouseY / height, 0, 1)
+        function nX() {
+            return clamp(mouseX / width, 0, 1);
+        }
+
+        function nY() {
+            return clamp(mouseY / height, 0, 1)
+        }
 
         onPressed: {
             timer.start();
@@ -103,13 +108,13 @@ Rectangle {
 
         onRunningChanged: {
             if (running) {
-                root.beginLine(mouseArea.nX, mouseArea.nY);
+                root.beginLine(mouseArea.nX(), mouseArea.nY());
                 canvas.startFrom(mouseArea.mouseX, mouseArea.mouseY);
             }
         }
 
         onTriggered: {
-            root.snapshot(mouseArea.nX, mouseArea.nY);
+            root.snapshot(mouseArea.nX(), mouseArea.nY());
             canvas.followLine(mouseArea.mouseX, mouseArea.mouseY);
         }
     }
